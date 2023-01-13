@@ -1,0 +1,14 @@
+.even-columns {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 47em) {
+    .even-columns {
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+        gap: 4rem;
+        align-items: center;
+        padding-inline: 2rem;
+    }
+}
