@@ -234,11 +234,11 @@ svg {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-block: 2rem 2.5rem;
   border-bottom: solid 1px hsl(var(--clr-primary-300));
 }
 .nav-wrapper > div {
   display: flex;
+  align-items: center;
 }
 
 .mobile-nav-toggle {
@@ -246,22 +246,20 @@ svg {
 }
 
 .logo {
-  margin: 2rem 4rem 0 0;
+  margin-right: 4rem;
 }
 
 .nav-list {
+  display: flex;
   list-style: none;
 }
 
 .nav-list li {
   padding: 2.5rem 0.5rem;
-  border-bottom: 0.2rem solid transparent;
+  border-bottom: 2px solid transparent;
   transition: border-color 300ms ease-in-out;
 }
-.nav-list li:hover, .nav-list li:focus {
-  border-color: hsl(var(--clr-accent-400));
-}
-.nav-list li.active, .nav-list li[aria-selected=true] {
+.nav-list li:hover, .nav-list li:focus, .nav-list li.active, .nav-list li[aria-selected=true] {
   border-color: hsl(var(--clr-accent-400));
 }
 
@@ -278,17 +276,19 @@ svg {
 }
 
 @media (max-width: 47em) {
-  .logo {
-    margin: auto 3rem;
+  .primary-header {
+    margin: 0;
   }
-  .primary-navigation {
+  [overlay=true]::after {
+    content: "";
     position: fixed;
-    z-index: 999;
     inset: 0;
-    width: 60%;
-    padding: min(20rem, 15vh) 2rem;
-    flex-direction: column;
-    background-color: hsl(var(--clr-neutral-100));
+    background-color: hsl(var(--clr-neutral-900));
+    opacity: 0.75;
+  }
+  .nav-wrapper {
+    padding-block: 1rem 1.5rem;
+    border: none;
   }
   .mobile-nav-toggle {
     display: block;
@@ -303,7 +303,46 @@ svg {
     border: 0;
     cursor: pointer;
   }
+  .mobile-nav-toggle[aria-expanded=true] {
+    position: fixed;
+    background-image: url("../assets/images/icon-close.svg");
+  }
+  .logo {
+    margin-inline: 3rem;
+  }
+  .primary-navigation {
+    position: fixed;
+    z-index: 999;
+    inset: 0;
+    transform: translateX(-100%);
+    width: 60%;
+    padding: min(20rem, 8vh) 2rem;
+    background-color: hsl(var(--clr-neutral-100));
+    font-weight: var(--fw-bold);
+    transition: transform 300ms ease-in-out;
+  }
+  .primary-navigation[data-visible] {
+    display: block;
+    transform: translateX(0);
+  }
+  .nav-list {
+    flex-direction: column;
+  }
+  .nav-list li {
+    padding: 1rem 0.5rem;
+    border-bottom: none;
+  }
+  .nav-list li:hover, .nav-list li:focus {
+    border: none;
+  }
 }
+.cart-button {
+  margin-right: 2rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .product-img .img_big:not(:first-child) {
   display: none;
 }

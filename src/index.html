@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css">
+    <!-- JavaScript -->
+    <script src="./main.js" defer></script>
 </head>
 <body>
     <header class="primary-header">
@@ -35,9 +37,17 @@
                     </nav>
                 </div>
                 <div>
-                    <button class="cart">
+                    <button class="cart-button">
                         <img src="./assets/images/icon-cart.svg" alt="Shopping cart">
                     </button>
+                    <div class="cart">
+                        <p class="fs-600 text-primary-600 fw-bold">Cart</p>
+                        <div class="cart-content">
+                            <p class="cart-empty text-primary-400 fw-bold">
+                                Your cart is empty
+                            </p>
+                        </div>
+                    </div>
                     <a href="#" class="account">
                         <img src="./assets/images/image-avatar.png" alt="Account avatar">
                     </a>
