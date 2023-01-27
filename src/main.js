@@ -14,3 +14,11 @@ navToggle.addEventListener('click', function() {
         primaryHeader.removeAttribute('overlay', false)
     }
 }) 
+
+
+const cartButton = document.querySelector('.cart-button')
+const shoppingCart = document.querySelector('.cart')
+
+cartButton.addEventListener('click', function() {
+    shoppingCart.toggleAttribute('hidden')
+})

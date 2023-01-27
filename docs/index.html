@@ -41,7 +41,7 @@
                         <img src="./assets/images/icon-cart.svg" alt="Shopping cart">
                         <span class="number fs-300 fw-bold text-neutral-100">1</span>
                     </button>
-                    <div class="cart flow">
+                    <div class="cart flow" hidden>
                         <p class="cart-title fs-600 text-primary-600 fw-bold">Cart</p>
                         <div class="cart-content grid">
                             <!-- <p class="cart-empty text-primary-400 fw-bold">
@@ -83,6 +83,8 @@
                             <li><a href=""><img src="./assets/images/image-product-3-thumbnail.jpg" alt=""></a></li>
                             <li><a href=""><img src="./assets/images/image-product-4-thumbnail.jpg" alt=""></a></li>
                         </ul>
+                        <button class="prev"></button>
+                        <button class="next"></button>
                     </div>
                     <!-- Lightbox -->
                     <div class="modal">
@@ -92,15 +94,19 @@
                             <img src="./assets/images/image-product-2.jpg" alt="" class="img_big">
                             <img src="./assets/images/image-product-3.jpg" alt="" class="img_big">
                             <img src="./assets/images/image-product-4.jpg" alt="" class="img_big">
-                            <ul class="img_thumbnail flex">
+                            <ul class="img_thumbnail">
                                 <li><a href=""><img src="./assets/images/image-product-1-thumbnail.jpg" alt=""></a></li>
                                 <li><a href=""><img src="./assets/images/image-product-2-thumbnail.jpg" alt=""></a></li>
                                 <li><a href=""><img src="./assets/images/image-product-3-thumbnail.jpg" alt=""></a></li>
                                 <li><a href=""><img src="./assets/images/image-product-4-thumbnail.jpg" alt=""></a></li>
                             </ul>
                         </div>
-                        <button class="prev"></button>
-                        <button class="next"></button>
+                        <button class="prev">
+                            <img src="./assets/images/icon-previous.svg" alt="Previous">
+                        </button>
+                        <button class="next">
+                            <img src="./assets/images/icon-next.svg" alt="Next">
+                        </button>
                     </div>
                     <div class="product-info flow">
                         <p class="fs-secondary-heading text-accent-400 fw-bold uppercase">Sneaker Company</p>
@@ -115,7 +121,7 @@
                             <input type="number" name="quantity" id="quantity" min="1">
                             <button class="decrease"></button>
                         </div>
-                        <button type="submit" value="Add to cart">Add to cart</button>
+                        <button class="button" type="submit" value="Add to cart">Add to cart</button>
                     </div>
                 </div>
             </div>

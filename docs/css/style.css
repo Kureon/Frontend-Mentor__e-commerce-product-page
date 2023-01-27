@@ -86,6 +86,11 @@ svg {
   display: block;
 }
 
+button {
+  border: 0;
+  box-shadow: none;
+}
+
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
@@ -264,7 +269,7 @@ svg {
   border-bottom: 2px solid transparent;
   transition: border-color 300ms ease-in-out;
 }
-.nav-list li:hover, .nav-list li:focus, .nav-list li.active, .nav-list li[aria-selected=true] {
+.nav-list li:hover, .nav-list li:focus-visible, .nav-list li.active, .nav-list li[aria-selected=true] {
   border-color: hsl(var(--clr-accent-400));
 }
 
@@ -272,12 +277,18 @@ svg {
   text-decoration: none;
   color: hsl(var(--clr-primary-400));
 }
-.nav-list a:hover, .nav-list a:focus {
+.nav-list a:hover, .nav-list a:focus-visible {
   color: hsl(var(--clr-primary-600));
 }
 
 .account {
   width: 3rem;
+  border-radius: 100%;
+  border: 2px solid transparent;
+  transition: border 300ms ease-in-out;
+}
+.account:hover, .account:focus-visible {
+  border: 2px solid hsl(var(--clr-accent-400));
 }
 
 @media (max-width: 47em) {
@@ -290,6 +301,7 @@ svg {
     inset: 0;
     background-color: hsl(var(--clr-neutral-900));
     opacity: 0.75;
+    z-index: 99;
   }
   .nav-wrapper {
     padding-block: 1rem 1.5rem;
@@ -321,7 +333,7 @@ svg {
     inset: 0;
     transform: translateX(-100%);
     width: 60%;
-    padding: min(20rem, 8vh) 2rem;
+    padding: min(20rem, 10vh) 2rem;
     background-color: hsl(var(--clr-neutral-100));
     font-weight: var(--fw-bold);
     transition: transform 300ms ease-in-out;
@@ -337,21 +349,31 @@ svg {
     padding: 1rem 0.5rem;
     border-bottom: none;
   }
-  .nav-list li:hover, .nav-list li:focus {
+  .nav-list li:hover, .nav-list li:focus-visible {
     border: none;
+  }
+  .nav-list li a {
+    color: hsl(var(--clr-primary-600));
   }
 }
 .cart-button {
   position: relative;
-  margin-right: 2rem;
+  margin-right: 1rem;
+  padding: 1rem;
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
+.cart-button img {
+  transition: filter 300ms ease-in-out;
+}
+.cart-button:hover img, .cart-button:focus-visible img {
+  filter: brightness(10%) saturate(90%);
+}
 .cart-button .number {
   position: absolute;
-  top: -15px;
-  right: -10px;
+  top: 0;
+  right: 0;
   padding: 0.05rem 0.5rem;
   background-color: hsl(var(--clr-accent-400));
   border-radius: 10px;
@@ -359,8 +381,9 @@ svg {
 
 .cart {
   position: absolute;
+  z-index: 99;
   inset-inline: 0;
-  top: 7rem;
+  top: 6.5rem;
   margin-inline: auto;
   padding: 1rem 2rem 2rem 2rem;
   width: min(100% - 2rem);
@@ -371,9 +394,10 @@ svg {
 
 @media (min-width: 47em) {
   .cart {
+    top: 6rem;
     left: auto;
-    right: 0;
-    width: 350px;
+    right: clamp(3em, 5vw, 8em);
+    width: 30rem;
   }
 }
 .cart-title {
@@ -410,8 +434,10 @@ svg {
 }
 
 .button {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
+  width: fill-available;
+  width: -webkit-fill-available;
   padding-block: 1rem;
   padding-inline: 4rem;
   text-decoration: none;
@@ -426,7 +452,57 @@ svg {
 }
 
 .product-img {
+  position: relative;
   margin-inline: -2rem;
+}
+
+.img_thumbnail {
+  display: none;
+  list-style: none;
+  margin-block: 1rem;
+}
+.img_thumbnail img {
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+.img_thumbnail a:hover img,
+.img_thumbnail a:focus-visible img {
+  opacity: 0.5;
+  border-color: hsl(var(--clr-accent-400));
+}
+
+@media (min-width: 47em) {
+  .img_thumbnail {
+    display: flex;
+  }
+  .prev,
+  .next {
+    display: none;
+  }
+}
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rem;
+  aspect-ratio: 1;
+  background-color: hsl(var(--clr-neutral-100));
+  border-radius: 100%;
+}
+
+.prev {
+  left: 2rem;
+  background-image: url("../assets/images/icon-previous.svg");
+  background-repeat: no-repeat;
+  background-position: 0.95rem center;
+}
+
+.next {
+  right: 2rem;
+  background-image: url("../assets/images/icon-next.svg");
+  background-repeat: no-repeat;
+  background-position: 1.2rem center;
 }
 
 .modal {
