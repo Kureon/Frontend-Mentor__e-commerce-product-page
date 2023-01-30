@@ -4,13 +4,13 @@
 
 :root {
     // Colours
-    --clr-accent-400: 26, 100%, 55%;
-    --clr-accent-200: 25, 100%, 94%;
+    --clr-accent-400: 26 100% 55%;
+    --clr-accent-200: 25 100% 94%;
 
-    --clr-primary-600: 220, 13%, 13%;
-    --clr-primary-400: 219, 9%, 45%;
-    --clr-primary-300: 220, 14%, 75%;
-    --clr-primary-200: 223, 64%, 98%;
+    --clr-primary-600: 220 13% 13%;
+    --clr-primary-400: 219 9% 45%;
+    --clr-primary-300: 220 14% 75%;
+    --clr-primary-200: 223 64% 98%;
 
     --clr-neutral-900: 0, 0%, 0%;
     --clr-neutral-100: 0, 0%, 100%;
@@ -22,7 +22,7 @@
     --ff-heading: var(--ff-primary);
 
     // Font-sizes
-    --fs-800: 3rem;
+    --fs-800: clamp(2rem, 2.5vw, 3rem);
     --fs-600: 1.5rem;
     --fs-400: 1rem;
     --fs-300: .8rem;

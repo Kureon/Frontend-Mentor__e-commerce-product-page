@@ -244,11 +244,18 @@
     color:hsl( var(--clr-neutral-100) );
     background-color: hsl( var(--clr-accent-400) );
     border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 20px 50px -20px hsl( var(--clr-accent-400) );
+    transition: background-color 300ms ease-in-out;
+
+    &:hover,
+    &:focus-visible {
+        background-color: hsl( var(--clr-accent-400) / .75 );
+    }
 }
 
 
-///
-
+// Product images
 .product-img .img_big:not(:first-child) {
     display: none;
 }
@@ -258,21 +265,37 @@
     margin-inline: -2rem;
 }
 
+@media (min-width: 47em) {
+    .product-img {
+        margin-inline: auto;
+        img {
+            border-radius: 10px;
+        }
+    }
+}
+
 // Lightbox
 .img_thumbnail {
     display: none;
     list-style: none;
     margin-block: 1rem;
 
-    img {
-        border-radius: 10px;
+    li {
         border: 2px solid transparent;
+        border-radius: 13px;
+
+        &[active] {
+            border-color: hsl( var(--clr-accent-400) );
+
+            img {
+                opacity: 0.5;
+            }
+        }
     }
 
     a:hover img,
     a:focus-visible img {
         opacity: 0.5;
-        border-color: hsl( var(--clr-accent-400) );
     }
 }
 
@@ -295,17 +318,39 @@
     aspect-ratio: 1;
     background-color: hsl( var(--clr-neutral-100) );
     border-radius: 100%;
+    cursor: pointer;
+
+    &::before {
+        transition: filter 200ms ease-in-out;
+    }
+
+    &:hover::before,
+    &:focus-visible::before {
+        filter: invert(52%) sepia(83%) saturate(1607%) hue-rotate(348deg) brightness(102%) contrast(100%);
+    }
 }
 
 .prev {
     left: 2rem;
+}
+
+.next {
+    right: 2rem;
+}
+
+.prev::before {
+    content: "";
+    position: absolute;
+    inset: 0;
     background-image: url('../assets/images/icon-previous.svg');
     background-repeat: no-repeat;
     background-position: 0.95rem center;
 }
 
-.next {
-    right: 2rem;
+.next::before {
+    content: "";
+    position: absolute;
+    inset: 0;
     background-image: url('../assets/images/icon-next.svg');
     background-repeat: no-repeat;
     background-position: 1.2rem center;
@@ -315,3 +360,126 @@
 .modal {
     display: none;
 }
+
+// Product info
+.product-info {
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+
+    h1 {
+    margin-top: 1rem;
+    }
+}
+
+.prices {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.price__discount {
+    padding-inline: .5rem;
+    padding-block: 0.15rem;
+    vertical-align: 0.219rem;
+    border-radius: 5px;
+}
+
+.price__old {
+    margin-top: .25rem;
+    text-decoration: line-through;
+}
+
+@media (min-width: 47em) {
+    .prices {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.quantity {
+    display: flex;
+    gap: unset;
+
+    input {
+        width: 100%;
+        text-align: center;
+        border: 0;
+        background-color: hsl( var(--clr-primary-200) );
+    }
+
+    // Hide input arrows
+    
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+    -moz-appearance: textfield;
+    }
+
+    .decrease,
+    .increase {
+        position: relative;
+        padding: 1.75rem;
+        background-color: hsl( var(--clr-primary-200) );
+        cursor: pointer;
+    
+        &:hover::before,
+        &:focus-visible::before {
+            filter: opacity(0.75);
+        }
+    }
+
+    .decrease::before,
+    .increase::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: filter 200ms ease-in-out;
+    }
+
+    .decrease {
+        border-radius: 10px 0 0 10px;
+    }
+
+    .increase {
+        border-radius: 0 10px 10px 0;
+    }
+
+    .decrease::before {
+        background-image: url("../assets/images/icon-minus.svg");
+    }
+
+    .increase::before {
+        background-image: url("../assets/images/icon-plus.svg");
+    }
+}
+
+@media (min-width: 47em) {
+    .purchase {
+        display: flex;
+        align-items: center;
+    }
+    .quantity {
+        display: inline-flex;
+        margin-right: 1rem;
+        min-width: 8rem;
+    }
+
+    .button[type=submit] {
+        margin: 0;
+        padding-inline: 1rem;
+    }
+}
+

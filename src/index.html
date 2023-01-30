@@ -71,14 +71,14 @@
     <main>
         <section class="product">
             <div class="container">
-                <div class="even-columns">
+                <div class="even-columns flow">
                     <div class="product-img">
-                        <img src="./assets/images/image-product-1.jpg" alt="" class="img_big">
+                        <img src="./assets/images/image-product-1.jpg" alt="" class="img_big" visible>
                         <img src="./assets/images/image-product-2.jpg" alt="" class="img_big">
                         <img src="./assets/images/image-product-3.jpg" alt="" class="img_big">
                         <img src="./assets/images/image-product-4.jpg" alt="" class="img_big">
                         <ul class="img_thumbnail flex">
-                            <li><a href=""><img src="./assets/images/image-product-1-thumbnail.jpg" alt=""></a></li>
+                            <li active><a href=""><img src="./assets/images/image-product-1-thumbnail.jpg" alt=""></a></li>
                             <li><a href=""><img src="./assets/images/image-product-2-thumbnail.jpg" alt=""></a></li>
                             <li><a href=""><img src="./assets/images/image-product-3-thumbnail.jpg" alt=""></a></li>
                             <li><a href=""><img src="./assets/images/image-product-4-thumbnail.jpg" alt=""></a></li>
@@ -90,12 +90,12 @@
                     <div class="modal">
                         <button class="modal-close">Close</button>
                         <div class="modal-content">
-                            <img src="./assets/images/image-product-1.jpg" alt="" class="img_big">
+                            <img src="./assets/images/image-product-1.jpg" alt="" class="img_big" visible>
                             <img src="./assets/images/image-product-2.jpg" alt="" class="img_big">
                             <img src="./assets/images/image-product-3.jpg" alt="" class="img_big">
                             <img src="./assets/images/image-product-4.jpg" alt="" class="img_big">
                             <ul class="img_thumbnail">
-                                <li><a href=""><img src="./assets/images/image-product-1-thumbnail.jpg" alt=""></a></li>
+                                <li active><a href=""><img src="./assets/images/image-product-1-thumbnail.jpg" alt=""></a></li>
                                 <li><a href=""><img src="./assets/images/image-product-2-thumbnail.jpg" alt=""></a></li>
                                 <li><a href=""><img src="./assets/images/image-product-3-thumbnail.jpg" alt=""></a></li>
                                 <li><a href=""><img src="./assets/images/image-product-4-thumbnail.jpg" alt=""></a></li>
@@ -113,15 +113,21 @@
                         <h1 class="fs-primary-heading text-primary-600 fw-bold">Fall Limited Edition Sneakers</h1>
                         <p>These low-profile sneakers are your perfect casual wear companion. Featuring a 
                             durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
-                        <p class="price fs-600 text-primary-600 fw-bold">$125.00</p>
-                        <span class="price__discount bg-accent-200 text-accent-400 fw-bold">50%</span>
-                        <p class="price__old text-primary-300 fw-bold">$250.00</p>
-                        <div class="quantity">
-                            <button class="increase"></button>
-                            <input type="number" name="quantity" id="quantity" min="1">
-                            <button class="decrease"></button>
+                        <div class="prices">
+                            <div>
+                                <p class="price fs-600 text-primary-600 fw-bold">$125.00</p>
+                                <span class="price__discount bg-accent-200 text-accent-400 fw-bold">50%</span>
+                            </div>
+                            <p class="price__old text-primary-300 fw-bold">$250.00</p>
                         </div>
-                        <button class="button" type="submit" value="Add to cart">Add to cart</button>
+                        <div class="purchase flow">
+                            <div class="quantity">
+                                <button class="decrease"></button>
+                                <input type="number" name="quantity" id="quantity" min="0" value="0">
+                                <button class="increase"></button>
+                            </div>
+                            <button class="button" type="submit" value="Add to cart">Add to cart</button>
+                        </div>
                     </div>
                 </div>
             </div>

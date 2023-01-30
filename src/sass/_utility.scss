@@ -16,7 +16,7 @@
 }
 
 .flow > *:where(:not(:first-child)) {
-    margin-top: var(--flow-space, 1rem);
+    margin-top: var(--flow-space, 2rem);
 }
 
 [hidden],
@@ -75,3 +75,7 @@
 .fs-600 { font-size: var(--fs-600); }
 .fs-400 { font-size: var(--fs-400); }
 .fs-300 { font-size: var(--fs-300); }
+
+input {
+    outline-color: hsl( var(--clr-accent-400) );
+}
